@@ -1,6 +1,7 @@
 import React from "react";
 import CoursePreviewHeader from "./_components/CoursePreviewHeader";
 import CourseMaterials from "./_components/CourseMaterials";
+import CommentsSection from "./_components/CommentsSection";
 
 interface PageProps {
   params: Promise<{
@@ -20,6 +21,7 @@ export default async function CoursePage({ params }: PageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-6">
         <CoursePreviewHeader courseId={courseId} title={courseTitle} />
         <CourseMaterials />
+        <CommentsSection />
       </div>
     </main>
   );
