@@ -22,7 +22,7 @@ export default function CoursePreviewHeader({
       </div>
 
       {/* Video & Social Share Section */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10">
         <VideoPlayer />
         <div className="flex items-center justify-between pt-1">
           <SocialShareBar />

@@ -17,7 +17,8 @@ export default function CommentsSection() {
     {
       id: "1",
       author: "Student Name Goes Here",
-      avatarUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80",
       date: "Oct 10, 2021",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -25,7 +26,8 @@ export default function CommentsSection() {
     {
       id: "2",
       author: "Student Name Goes Here",
-      avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
       date: "Oct 15, 2021",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -33,7 +35,8 @@ export default function CommentsSection() {
     {
       id: "3",
       author: "Student Name Goes Here",
-      avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
       date: "Oct 19, 2021",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -44,7 +47,8 @@ export default function CommentsSection() {
     const newComment: CommentItem = {
       id: String(comments.length + 1),
       author: "You (Student)",
-      avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80",
       date: new Date().toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -57,25 +61,21 @@ export default function CommentsSection() {
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto py-8">
-      <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">
+    <section className="w-full max-w-4xl mx-auto">
+      <h2 className="text-xl sm:text-2xl leading-11 font-bold text-slate-900 dark:text-white mb-2">
         Comments
       </h2>
 
       {/* Comments List */}
-      <div className="flex flex-col">
-        {comments.map((comment, index) => {
-          const isLast = index === comments.length - 1;
-
+      <div className="flex flex-col ">
+        {comments.map((comment) => {
           return (
             <div
               key={comment.id}
-              className={`flex items-start gap-4 py-6 ${
-                isLast ? "" : "border-b border-slate-100 dark:border-slate-900"
-              }`}
+              className="flex items-start gap-4 py-6 border-b border-[#ebebeb] "
             >
               {/* Left Avatar */}
-              <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
                 <Image
                   src={comment.avatarUrl}
                   alt={comment.author}
@@ -87,10 +87,10 @@ export default function CommentsSection() {
 
               {/* Right Content Area */}
               <div className="flex flex-col gap-1 w-full">
-                <span className="font-semibold text-slate-800 dark:text-slate-200 text-sm sm:text-base">
+                <span className="font-semibold text-gray-600 dark:text-slate-200 text-sm sm:text-base">
                   {comment.author}
                 </span>
-                <span className="text-xs text-slate-400 dark:text-slate-500">
+                <span className="text-xs text-slate-500 dark:text-slate-500">
                   {comment.date}
                 </span>
                 <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mt-2">
