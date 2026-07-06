@@ -26,13 +26,18 @@ export default async function CoursePage({ params }: PageProps) {
           {courseTitle}
         </h1>
       </div>
-      <div className="flex justify-center gap-10 px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="max-w-7xl w-full flex flex-col gap-[60px]">
+      <div className="flex flex-col lg:flex-row justify-center gap-10 px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl mx-auto w-full">
+        <div className="w-full lg:max-w-4xl flex flex-col gap-[60px]">
           <CoursePreviewHeader />
           <CourseMaterials />
+          <div className="block lg:hidden">
+            <CourseTopics />
+          </div>
           <CommentsSection />
         </div>
-        <CourseTopics />
+        <div className="hidden lg:block">
+          <CourseTopics />
+        </div>
       </div>
     </main>
   );
