@@ -2,6 +2,18 @@
 
 import React, { useState } from "react";
 import { FileText, Lock, Plus, Minus } from "lucide-react";
+import { useCoursePlayer } from "./CoursePlayerContext";
+
+const topicVideos: Record<string, { url: string; title: string }> = {
+  "3": {
+    url: "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+    title: "Course Overview",
+  },
+  "9": {
+    url: "https://www.youtube.com/embed/l7WA75aR63E",
+    title: "Return Values From Functions",
+  },
+};
 
 interface TopicItem {
   id: string;
@@ -24,6 +36,26 @@ export default function CourseTopics() {
   const [expandedSectionId, setExpandedSectionId] = useState<string | null>(
     "sec-1",
   );
+  const { setCurrentVideoUrl, setCurrentVideoTitle, setIsPlaying } = useCoursePlayer();
+
+  const handleTopicClick = (topic: TopicItem) => {
+    if (topic.isLocked) return;
+
+    const videoData = topicVideos[topic.id] || {
+      url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      title: topic.title,
+    };
+
+    setCurrentVideoUrl(videoData.url);
+    setCurrentVideoTitle(videoData.title);
+    setIsPlaying(true);
+
+    // Smoothly scroll to the player on mobile devices so they see it play immediately
+    const playerEl = document.getElementById("course-player-container");
+    if (playerEl && window.innerWidth < 1024) {
+      playerEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const sections: CourseSection[] = [
     {
@@ -183,8 +215,11 @@ export default function CourseTopics() {
                     return (
                       <div
                         key={topic.id}
-                        className={`flex items-center justify-between py-4 group ${
-                          isUnlocked ? "cursor-pointer" : "opacity-90"
+                        onClick={() => handleTopicClick(topic)}
+                        className={`flex items-center justify-between py-4 group transition-all duration-150 ${
+                          isUnlocked 
+                            ? "cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-900/50 px-3 -mx-3 rounded-lg" 
+                            : "opacity-90"
                         }`}
                       >
                         {/* Left side: Icon & Title */}

@@ -9,9 +9,10 @@ interface BreadcrumbItem {
 
 interface BreadcrumbsProps {
   items?: BreadcrumbItem[];
+  className?: string;
 }
 
-export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+export default function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   const defaultItems: BreadcrumbItem[] = [
     { label: "Home", href: "/" },
     { label: "Courses", href: "/courses" },
@@ -21,7 +22,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   const displayItems = items || defaultItems;
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-2">
+    <div className={className || "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-2"}>
       <nav 
         className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 xl:space-x-4 text-sm md:text-base xl:text-lg font-medium text-slate-500 dark:text-slate-400" 
         aria-label="Breadcrumb"

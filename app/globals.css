@@ -19,3 +19,58 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom styling overrides for Plyr video player */
+:root {
+  --plyr-color-main: #e54860;
+  --plyr-video-background: #020617;
+}
+
+.plyr {
+  border-radius: inherit;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.plyr__video-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+.plyr__video-embed {
+  width: 100% !important;
+  height: 100% !important;
+  padding-bottom: 0 !important;
+}
+
+.plyr iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fallback rotation for mobile screens in portrait mode when in fullscreen (e.g. iOS Safari) */
+@media (orientation: portrait) {
+  #course-player-container:fullscreen .player-inner-wrapper {
+    width: 100vh !important;
+    height: 100vw !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+    transform-origin: center center !important;
+    border-radius: 0 !important;
+  }
+  
+  #course-player-container:-webkit-full-screen .player-inner-wrapper {
+    width: 100vh !important;
+    height: 100vw !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+    transform-origin: center center !important;
+    border-radius: 0 !important;
+  }
+}
+
