@@ -20,11 +20,11 @@ interface CoursePlayerContextType {
 const CoursePlayerContext = createContext<CoursePlayerContextType | undefined>(undefined);
 
 export function CoursePlayerProvider({ children }: { children: React.ReactNode }) {
-  const [currentVideoUrl, setCurrentVideoUrl] = useState("https://www.youtube.com/watch?v=YBhHxIg_yQ8");
+  const [currentVideoUrl, setCurrentVideoUrl] = useState("/هل سوق البرمجة ينهار فعلًا؟ ولماذا تم تسريح آلاف المبرمجين؟.mp4");
   const [isPlaying, setIsPlaying] = useState(false);
   const [layoutMode, setLayoutMode] = useState<LayoutMode>("normal");
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [currentVideoTitle, setCurrentVideoTitle] = useState("Starting SEO as your Home");
+  const [currentVideoTitle, setCurrentVideoTitle] = useState("هل سوق البرمجة ينهار فعلاً؟ ولماذا تم تسريح آلاف المبرمجين؟");
 
   return (
     <CoursePlayerContext.Provider
