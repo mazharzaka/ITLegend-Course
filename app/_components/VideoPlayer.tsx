@@ -46,7 +46,7 @@ export default function VideoPlayer({
 
   const [showControls, setShowControls] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const plyrContainerRef = useRef<any>(null);
+  const plyrContainerRef = useRef<HTMLDivElement>(null);
   const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync fullscreen state with native browser events (e.g. Esc key)
@@ -167,12 +167,7 @@ export default function VideoPlayer({
     }
   };
 
-  const isYouTubeUrl = (url: string) => {
-    return url.includes("youtube.5com") || url.includes("youtube.com") || url.includes("youtu.be") || url.includes("youtube-nocookie.com");
-  };
-
   const youtubeId = getYouTubeId(currentVideoUrl);
-  const isYoutube = isYouTubeUrl(currentVideoUrl);
 
   return (
     <div
@@ -223,20 +218,10 @@ export default function VideoPlayer({
         ) : (
           /* Video Embed Plyr Player Container */
           <div className="absolute inset-0 w-full h-full bg-slate-950">
-            {isYoutube ? (
-              <div
-                ref={plyrContainerRef}
-                data-plyr-provider="youtube"
-                data-plyr-embed-id={youtubeId}
-              />
-            ) : (
-              <video
-                ref={plyrContainerRef}
-                playsInline
-                src={currentVideoUrl}
-                className="w-full h-full"
-              />
-            )}
+            <div
+              ref={plyrContainerRef}
+              data-plyr-provider=""
+            />
           </div>
         )}
 
