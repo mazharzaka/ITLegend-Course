@@ -20,7 +20,7 @@ interface CoursePlayerContextType {
 const CoursePlayerContext = createContext<CoursePlayerContextType | undefined>(undefined);
 
 export function CoursePlayerProvider({ children }: { children: React.ReactNode }) {
-  const [currentVideoUrl, setCurrentVideoUrl] = useState("/هل سوق البرمجة ينهار فعلًا؟ ولماذا تم تسريح آلاف المبرمجين؟.mp4");
+  const [currentVideoUrl, setCurrentVideoUrl] = useState("/programming-market.mp4");
   const [isPlaying, setIsPlaying] = useState(false);
   const [layoutMode, setLayoutMode] = useState<LayoutMode>("normal");
   const [isFullscreen, setIsFullscreen] = useState(false);
